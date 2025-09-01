@@ -12,7 +12,7 @@ from nltk.corpus import stopwords
 from sklearn.svm import LinearSVC
 
 svc = LinearSVC(class_weight='balanced', max_iter=10000)
-csv = pd.read_csv(r"C:\Users\Ziegfreld\Downloads\archive (4)\multilingual_mobile_app_reviews_2025.csv")
+csv = pd.read_csv("multilingual_mobile_app_reviews_2025.csv")
 vectorizer =  TfidfVectorizer(max_features=10000, ngram_range=(1, 3))
 clf = LogisticRegression(class_weight='balanced', max_iter=10000)
 csv = csv.dropna(subset=['review_text'])
@@ -81,6 +81,7 @@ y_predSVC = svc.predict(X_test_vect)
 
 print(classification_report(y_test, y_pred))
 print(classification_report(y_test, y_predSVC))
+
 
 
 
